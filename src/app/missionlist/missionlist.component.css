@@ -1,0 +1,28 @@
+.mission-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .mission-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+    background-color: #E6F0FA;
+    border: 1px solid black;
+    cursor: pointer;
+  }
+  
+  .mission-content {
+    flex: 1;
+  }
+  
+  h3 {
+    margin: 0;
+    font-size: 1.2em;
+  }
+  
+  p {
+    margin: 8px 0 0 0;
+  }

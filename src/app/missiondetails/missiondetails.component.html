@@ -1,0 +1,27 @@
+<div *ngIf="errorMessage" style="color: red;">
+    {{ errorMessage }}
+  </div>
+  
+  <div *ngIf="mission" class="mission-details">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>{{ mission.mission_name }}</mat-card-title>
+        <mat-card-subtitle>Launch Year: {{ mission.launch_year }}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image [src]="mission.links.mission_patch_small || '/assets/placeholder.png'" alt="Mission Patch" (error)="mission.links.mission_patch_small = null">
+      <mat-card-content>
+        <p><strong>Flight Number:</strong> {{ mission.flight_number }}</p>
+        <p><strong>Details:</strong> {{ mission.details || 'No details available' }}</p>
+        <p><strong>Launch Success:</strong> {{ mission.launch_success ? 'Yes' : 'No' }}</p>
+        <p><strong>Landing Success:</strong> {{ mission.rocket.first_stage.cores[0]?.land_success ? 'Yes' : 'No' }}</p>
+        <p><strong>Rocket:</strong> {{ mission.rocket.rocket_name }}</p>
+        <p><strong>Launch Date:</strong> {{ mission.launch_date_utc | date:'medium' }}</p>
+        <p><strong>Launch Site:</strong> {{ mission.launch_site.site_name_long }}</p>
+        <p><strong>Links:</strong></p>
+        <ul>
+          <li><a [href]="mission.links.wikipedia" target="_blank">Wikipedia</a></li>
+          <li><a [href]="mission.links.video_link" target="_blank">Video</a></li>
+        </ul>
+      </mat-card-content>
+    </mat-card>
+  </div>

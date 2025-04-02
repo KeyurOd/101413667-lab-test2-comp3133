@@ -1,0 +1,25 @@
+<h2>Mission List</h2>
+
+<app-missionfilter
+  (filterYear)="filterByYear($event)"
+  (filterLaunchSuccess)="filterByLaunchSuccess($event)"
+  (filterLandingSuccess)="filterByLandingSuccess($event)"
+  (resetFilters)="resetFilters()">
+</app-missionfilter>
+
+<div *ngIf="errorMessage" style="color: red;">
+  {{ errorMessage }}
+</div>
+
+<div class="mission-list" *ngIf="!errorMessage">
+  <div *ngIf="missions.length === 0">
+    <p>No missions found.</p>
+  </div>
+  <div class="mission-card" *ngFor="let mission of missions" (click)="navigateToDetails(mission.flight_number)">
+    <img [src]="mission.links.mission_patch_small || '/assets/placeholder.png'" alt="Mission Patch" width="150" (error)="mission.links.mission_patch_small = null">
+    <div class="mission-content">
+      <h3>{{ mission.mission_name }} ({{ mission.launch_year }})</h3>
+      <p>{{ mission.details || 'No details available' }}</p>
+    </div>
+  </div>
+</div>
