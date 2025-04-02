@@ -101,4 +101,3 @@ This project is submitted for COMP 3133 Lab Test 2 on April 2, 2025.
 
 ## Acknowledgments
 - Thanks to the SpaceX API for providing the data.
-- Built with Angular and Angular Material for a modern UI.
