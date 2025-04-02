@@ -1,59 +1,104 @@
-# 101413667LabTest2Comp3133
+# 101413667-lab-test2-comp3133
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.5.
+## Overview
+This project is a lab test submission for COMP 3133, created by Keyur. It is a web application built with Angular that interacts with the [SpaceX API](https://api.spacexdata.com/v3/launches) to display a list of SpaceX missions. Users can filter missions by launch year, launch success, and landing success, and view detailed information about each mission.
 
-## Development server
+### Features
+- **Mission List**: Displays a list of SpaceX missions with their name, launch year, details, and mission patch image.
+- **Filters**: Allows filtering missions by:
+  - Launch year (e.g., 2020)
+  - Launch success (successful/failed)
+  - Landing success (successful/failed)
+- **Mission Details**: Shows detailed information about a selected mission, including flight number, rocket details, launch site, and links to Wikipedia and video.
+- **Responsive Design**: Uses Angular Material for a clean, modern UI with card layouts, larger images, and hover effects.
+- **Loading Spinner**: Displays a spinner while fetching data from the API.
+- **Deployment**: Deployed on Vercel with automatic deployments from GitHub.
 
-To start a local development server, run:
+## Tech Stack
+- **Frontend**: Angular 17+
+- **Styling**: Angular Material, custom CSS
+- **API**: SpaceX API (`https://api.spacexdata.com/v3/launches`)
+- **Deployment**: Vercel
+- **Version Control**: Git/GitHub
 
-```bash
-ng serve
-```
+## Setup Instructions
+Follow these steps to run the project locally.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+### Prerequisites
+- **Node.js**: Version 18.x or higher
+- **npm**: Version 9.x or higher
+- **Angular CLI**: Install globally with:
+  ```bash
+  npm install -g @angular/cli
+  ```
 
-## Code scaffolding
+### Installation
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/<your-username>/101413667-lab-test2-comp3133.git
+   cd 101413667-lab-test2-comp3133
+   ```
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+2. **Install Dependencies**:
+   ```bash
+   npm install
+   ```
 
-```bash
-ng generate component component-name
-```
+3. **Run the Application**:
+   ```bash
+   ng serve
+   ```
+   - Open your browser and navigate to `http://localhost:4200`.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
+### Build for Production
+To build the project for production:
 ```bash
 ng build
 ```
+- The output will be in the `dist/101413667-lab-test2-comp3133` folder.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Usage
+1. **Mission List**:
+   - On the homepage (`/`), you’ll see a list of SpaceX missions.
+   - Each mission card displays the mission name, launch year, details, and a mission patch image.
+   - Click on a mission card to view its details.
 
-## Running unit tests
+2. **Filters**:
+   - Use the filter section to filter missions by:
+     - **Launch Year**: Enter a year (e.g., `2020`) to filter missions from that year.
+     - **Launch Success**: Select "Successful" or "Failed" to filter by launch outcome.
+     - **Landing Success**: Select "Successful" or "Failed" to filter by landing outcome.
+   - Click "Reset Filters" to clear all filters and show all missions.
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+3. **Mission Details**:
+   - Navigate to `/mission/<id>` (e.g., `/mission/1`) to view details of a specific mission.
+   - Details include flight number, launch success, landing success, rocket name, launch date, launch site, and links to Wikipedia and video.
 
-```bash
-ng test
-```
+## Deployment
+The project is deployed on Netlify.
 
-## Running end-to-end tests
+- **Live URL**: [https://101413667labtest2comp3133.netlify.app](https://101413667labtest2comp3133.netlify.app)
+- **GitHub Repository**: [https://github.com/keyurod/101413667-lab-test2-comp3133](https://github.com/keyurod/101413667-lab-test2-comp3133)
 
-For end-to-end (e2e) testing, run:
 
-```bash
-ng e2e
-```
+## Submission Details
+This project is submitted for COMP 3133 Lab Test 2 on April 2, 2025.
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+- **Student ID**: 101413667
+- **Course**: COMP 3133
+- **Assignment**: Lab Test 2
+- **Submission**:
+  - **Blackboard**: Uploaded `101413667-lab-test2-comp3133.zip` with GitHub and netlify URLs in the comments.
+  - **D2L**: Uploaded screenshots (`mission-list.png` and `mission-details.png`).
 
-## Additional Resources
+## Screenshots
+### Mission List
+![Mission List](screenshots/mission-list.png)
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+### Mission Details
+![Mission Details](screenshots/mission-details.png)
+
+
+## Acknowledgments
+- Thanks to the SpaceX API for providing the data.
+- Built with Angular and Angular Material for a modern UI.
