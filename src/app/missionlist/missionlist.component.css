@@ -1,28 +1,82 @@
+.mission-list-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h2 {
+  font-size: 1.8rem;
+  color: #1a237e;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+
+.error-message {
+  color: #d32f2f;
+  text-align: center;
+  margin: 20px 0;
+  font-size: 1.1rem;
+}
+
+.no-missions {
+  text-align: center;
+  color: #666;
+  font-size: 1.1rem;
+  margin: 20px 0;
+}
+
 .mission-list {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-  
-  .mission-card {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    padding: 16px;
-    background-color: #E6F0FA;
-    border: 1px solid black;
-    cursor: pointer;
-  }
-  
-  .mission-content {
-    flex: 1;
-  }
-  
-  h3 {
-    margin: 0;
-    font-size: 1.2em;
-  }
-  
-  p {
-    margin: 8px 0 0 0;
-  }
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 10px;
+}
+
+.mission-card {
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+
+.mission-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+mat-card-header {
+  display: flex;
+  align-items: center;
+}
+
+mat-card-avatar {
+  width: 80px; /* Increased from 50px */
+  height: 80px; /* Increased from 50px */
+  border-radius: 50%;
+  margin-right: 15px; /* Adjusted for larger image */
+}
+
+mat-card-title {
+  font-size: 1.2rem;
+  color: #1a237e;
+}
+
+mat-card-subtitle {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+mat-card-content p {
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.5;
+}
+
+mat-card-actions {
+  display: flex;
+  justify-content: flex-end;
+}

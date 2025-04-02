@@ -1,27 +1,52 @@
-<div *ngIf="errorMessage" style="color: red;">
-    {{ errorMessage }}
-  </div>
+<div class="mission-details-container">
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
   
-  <div *ngIf="mission" class="mission-details">
-    <mat-card>
-      <mat-card-header>
-        <mat-card-title>{{ mission.mission_name }}</mat-card-title>
-        <mat-card-subtitle>Launch Year: {{ mission.launch_year }}</mat-card-subtitle>
-      </mat-card-header>
-      <img mat-card-image [src]="mission.links.mission_patch_small || '/assets/placeholder.png'" alt="Mission Patch" (error)="mission.links.mission_patch_small = null">
-      <mat-card-content>
-        <p><strong>Flight Number:</strong> {{ mission.flight_number }}</p>
-        <p><strong>Details:</strong> {{ mission.details || 'No details available' }}</p>
-        <p><strong>Launch Success:</strong> {{ mission.launch_success ? 'Yes' : 'No' }}</p>
-        <p><strong>Landing Success:</strong> {{ mission.rocket.first_stage.cores[0]?.land_success ? 'Yes' : 'No' }}</p>
-        <p><strong>Rocket:</strong> {{ mission.rocket.rocket_name }}</p>
-        <p><strong>Launch Date:</strong> {{ mission.launch_date_utc | date:'medium' }}</p>
-        <p><strong>Launch Site:</strong> {{ mission.launch_site.site_name_long }}</p>
-        <p><strong>Links:</strong></p>
-        <ul>
-          <li><a [href]="mission.links.wikipedia" target="_blank">Wikipedia</a></li>
-          <li><a [href]="mission.links.video_link" target="_blank">Video</a></li>
-        </ul>
-      </mat-card-content>
-    </mat-card>
+    <div *ngIf="mission" class="mission-details">
+      <mat-card class="mission-card">
+        <mat-card-header>
+          <div mat-card-avatar class="mission-header-image">
+            <img [src]="mission.links.mission_patch_small || '/assets/placeholder.png'" alt="Mission Patch" (error)="mission.links.mission_patch_small = null">
+          </div>
+          <mat-card-title>{{ mission.mission_name }}</mat-card-title>
+          <mat-card-subtitle>Launch Year: {{ mission.launch_year }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="details-grid">
+            <div class="detail-item">
+              <strong>Flight Number:</strong> {{ mission.flight_number }}
+            </div>
+            <div class="detail-item">
+              <strong>Details:</strong> {{ mission.details || 'No details available' }}
+            </div>
+            <div class="detail-item">
+              <strong>Launch Success:</strong> {{ mission.launch_success ? 'Yes' : 'No' }}
+            </div>
+            <div class="detail-item">
+              <strong>Landing Success:</strong> {{ mission.rocket.first_stage.cores[0].land_success ? 'Yes' : 'No' }}
+            </div>
+            <div class="detail-item">
+              <strong>Rocket:</strong> {{ mission.rocket.rocket_name }}
+            </div>
+            <div class="detail-item">
+              <strong>Launch Date:</strong> {{ mission.launch_date_utc | date:'medium' }}
+            </div>
+            <div class="detail-item">
+              <strong>Launch Site:</strong> {{ mission.launch_site.site_name_long }}
+            </div>
+            <div class="detail-item links">
+              <strong>Links:</strong>
+              <ul>
+                <li><a [href]="mission.links.wikipedia" target="_blank" mat-button color="primary">Wikipedia</a></li>
+                <li><a [href]="mission.links.video_link" target="_blank" mat-button color="primary">Video</a></li>
+              </ul>
+            </div>
+          </div>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button color="primary" (click)="goBack()">Back to List</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
   </div>

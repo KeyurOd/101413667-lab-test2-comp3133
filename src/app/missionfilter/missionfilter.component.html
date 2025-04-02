@@ -1,26 +1,32 @@
 <div class="filter-container">
-    <mat-form-field appearance="fill">
-      <mat-label>Filter by LAUNCH YEAR</mat-label>
-      <input matInput [(ngModel)]="year" (ngModelChange)="filterMissions()" placeholder="e.g., 2020">
-    </mat-form-field>
+    <mat-card class="filter-card">
+      <mat-card-content>
+        <div class="filter-group">
+          <mat-form-field appearance="outline" class="year-filter">
+            <mat-label>Filter by Launch Year</mat-label>
+            <input matInput [(ngModel)]="year" (ngModelChange)="filterMissions()" placeholder="e.g., 2020">
+          </mat-form-field>
+        </div>
   
-    <div class="filter-group">
-      <label>LAUNCH</label>
-      <mat-radio-group [(ngModel)]="launchSuccess" (change)="filterLaunch()">
-        <mat-radio-button [value]="true">Successful</mat-radio-button>
-        <mat-radio-button [value]="false">Failed</mat-radio-button>
-        <mat-radio-button [value]="null" (click)="launchSuccess = null; filterLaunch()">All</mat-radio-button>
-      </mat-radio-group>
-    </div>
+        <div class="filter-group">
+          <label class="filter-label">Launch Status</label>
+          <mat-radio-group [(ngModel)]="launchSuccess" (change)="filterLaunch()">
+            <mat-radio-button [value]="true">Successful</mat-radio-button>
+            <mat-radio-button [value]="false">Failed</mat-radio-button>
+            <mat-radio-button [value]="null" (click)="launchSuccess = null; filterLaunch()">All</mat-radio-button>
+          </mat-radio-group>
+        </div>
   
-    <div class="filter-group">
-      <label>LANDING</label>
-      <mat-radio-group [(ngModel)]="landingSuccess" (change)="filterLanding()">
-        <mat-radio-button [value]="true">Successful</mat-radio-button>
-        <mat-radio-button [value]="false">Failed</mat-radio-button>
-        <mat-radio-button [value]="null" (click)="landingSuccess = null; filterLanding()">All</mat-radio-button>
-      </mat-radio-group>
-    </div>
+        <div class="filter-group">
+          <label class="filter-label">Landing Status</label>
+          <mat-radio-group [(ngModel)]="landingSuccess" (change)="filterLanding()">
+            <mat-radio-button [value]="true">Successful</mat-radio-button>
+            <mat-radio-button [value]="false">Failed</mat-radio-button>
+            <mat-radio-button [value]="null" (click)="landingSuccess = null; filterLanding()">All</mat-radio-button>
+          </mat-radio-group>
+        </div>
   
-    <button mat-raised-button color="primary" (click)="reset()">Reset Filters</button>
+        <button mat-raised-button color="primary" (click)="reset()" class="reset-button">Reset Filters</button>
+      </mat-card-content>
+    </mat-card>
   </div>

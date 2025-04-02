@@ -1,25 +1,30 @@
-<h2>Mission List</h2>
-
-<app-missionfilter
-  (filterYear)="filterByYear($event)"
-  (filterLaunchSuccess)="filterByLaunchSuccess($event)"
-  (filterLandingSuccess)="filterByLandingSuccess($event)"
-  (resetFilters)="resetFilters()">
-</app-missionfilter>
-
-<div *ngIf="errorMessage" style="color: red;">
-  {{ errorMessage }}
-</div>
-
-<div class="mission-list" *ngIf="!errorMessage">
-  <div *ngIf="missions.length === 0">
-    <p>No missions found.</p>
-  </div>
-  <div class="mission-card" *ngFor="let mission of missions" (click)="navigateToDetails(mission.flight_number)">
-    <img [src]="mission.links.mission_patch_small || '/assets/placeholder.png'" alt="Mission Patch" width="150" (error)="mission.links.mission_patch_small = null">
-    <div class="mission-content">
-      <h3>{{ mission.mission_name }} ({{ mission.launch_year }})</h3>
-      <p>{{ mission.details || 'No details available' }}</p>
+<div class="mission-list-container">
+    <h2>Mission List</h2>
+  
+    <app-missionfilter
+      (filterYear)="filterByYear($event)"
+      (filterLaunchSuccess)="filterByLaunchSuccess($event)"
+      (filterLandingSuccess)="filterByLandingSuccess($event)"
+      (resetFilters)="resetFilters()">
+    </app-missionfilter>
+  
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+  
+    <div class="mission-list" *ngIf="!errorMessage">
+      <div *ngIf="missions.length === 0" class="no-missions">
+        <p>No missions found.</p>
+      </div>
+      <mat-card class="mission-card" *ngFor="let mission of missions" (click)="navigateToDetails(mission.flight_number)">
+        <mat-card-header>
+          <img mat-card-avatar [src]="mission.links.mission_patch_small || '/assets/placeholder.png'" alt="Mission Patch" (error)="mission.links.mission_patch_small = null">
+          <mat-card-title>{{ mission.mission_name }}</mat-card-title>
+          <mat-card-subtitle>{{ mission.launch_year }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>{{ mission.details || 'No details available' }}</p>
+        </mat-card-content>
+      </mat-card>
     </div>
   </div>
-</div>
